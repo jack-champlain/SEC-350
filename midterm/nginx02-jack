@@ -1,0 +1,37 @@
+sudo nano /etc/netplan/00-installer-config.yaml
+GNU nano 6.2
+# This is the network config written by
+network:
+  ethernets:
+    ens160:
+      addresses:
+        - 172.16.50.3/29
+      routes:
+        - to: default
+        via: 172.16.50.2
+      nameservers :
+        addresses :
+          - 172.16.50.2
+version: 2
+sudo apt-get update 
+sudo apt-get install nginx
+sudo nano /var/www/html/index.html
+<@DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Destiny 2 Trials Stats</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #3498db; }
+        p { font-size: 18px; ]
+    </style>
+</head>
+<body>
+    <h1>Here are my Destiny 2 Trials Stats !< /h1>
+    <p>trials.report/report/1/4611686018488120085</p>
+</body>
+</html>
+sudo nano /etc/nginx/sites-enabled/default and change index to index index.html;
+systemctl restart nginx
